@@ -9,14 +9,15 @@ import org.springframework.security.web.SecurityFilterChain;
 public class ProjectSecurityConfig {
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
+
         http.authorizeHttpRequests()
-                .requestMatchers("/myAccounts","/myBalance","myLoans","myCards").authenticated()
+                .requestMatchers("/myAccounts", "/myBalance", "myLoans", "myCards").authenticated()
                 .requestMatchers("/notices", "/contact").permitAll()
                 .and().formLogin()
                 .and().httpBasic();
 
         return http.build();
-    }
 
+    }
 
 }
